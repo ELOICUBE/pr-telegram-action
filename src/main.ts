@@ -51,20 +51,6 @@ const formatMessage = (payload: PullRequestEvent): string => {
       `;
       console.debug("Message: ", message);
       return message;
-
-    case "review_requested":
-      const { requested_reviewer } = payload;
-      const { login: reviewer } = requested_reviewer;
-      const reviewerName = escapeMarkdown(reviewer);
-      message = `📝  *리뷰요청* 
-      레포지토리 \\\#${number} [${ownerName}/${repoName}]\(https://github.com/${ownerName}/${repoName}/pull/${number}\) 
-      *제목:* ${prTitle}
-      *요청자:* [${senderName}](https://github.com/${senderName})
-      *리뷰어:* [${reviewerName}](https://github.com/${reviewerName})
-      [요청 보기](https://github.com/${ownerName}/${repoName}/pull/${number})
-      `;
-      console.debug("Message: ", message);
-      return message;
     default:
       throw new Error(`Unsupported action: ${action}`);
   }
