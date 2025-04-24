@@ -81,11 +81,11 @@ const formatMessage = (payload) => {
     const senderName = escapeMarkdown(sender.login);
     switch (action) {
         case "opened":
-            message = `🔄 *Pull Request* \\\#${number}
-      On [${ownerName}/${repoName}](https://github.com/${ownerName}/${repoName}/pull/${number})
-      *Title:* ${prTitle}
-      *By:* [${senderName}](https://github.com/${senderName})
-      [View Pull Request](https://github.com/${ownerName}/${repoName}/pull/${number})
+            message = `🔄 *PR* \\\#${number}
+      레포지토리 [${ownerName}/${repoName}](https://github.com/${ownerName}/${repoName}/pull/${number})
+      *제목:* ${prTitle}
+      *요청자:* [${senderName}](https://github.com/${senderName})
+      [PR 보기](https://github.com/${ownerName}/${repoName}/pull/${number})
       `;
             console.debug("Message: ", message);
             return message;
@@ -93,12 +93,12 @@ const formatMessage = (payload) => {
             const { requested_reviewer } = payload;
             const { login: reviewer } = requested_reviewer;
             const reviewerName = escapeMarkdown(reviewer);
-            message = `📝  *Review Request* 
-      On \\\#${number} [${ownerName}/${repoName}]\(https://github.com/${ownerName}/${repoName}/pull/${number}\) 
-      *Title:* ${prTitle}
-      *By:* [${senderName}](https://github.com/${senderName})
-      *For:* [${reviewerName}](https://github.com/${reviewerName})
-      [View Request](https://github.com/${ownerName}/${repoName}/pull/${number})
+            message = `📝  *리뷰요청* 
+      레포지토리 \\\#${number} [${ownerName}/${repoName}]\(https://github.com/${ownerName}/${repoName}/pull/${number}\) 
+      *제목:* ${prTitle}
+      *요청자:* [${senderName}](https://github.com/${senderName})
+      *리뷰어:* [${reviewerName}](https://github.com/${reviewerName})
+      [요청 보기](https://github.com/${ownerName}/${repoName}/pull/${number})
       `;
             console.debug("Message: ", message);
             return message;

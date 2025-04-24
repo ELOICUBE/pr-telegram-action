@@ -56,3 +56,15 @@ or refer to [this](https://core.telegram.org/bots#3-how-do-i-create-a-bot) on ho
 ### Notes
 When a review is requested this action will run for every reviewer.
 
+
+
+------
+
+설치방법
+1. npm install
+
+
+배포방법
+1. npm run build
+2. npm run package
+3. commit and push
